@@ -4,10 +4,6 @@ phases:
   install:
     runtime-versions:
       python: 3.9
-    commands:
-      - echo "Installing dependencies"
-      - pip install --upgrade pip
-      - pip install -r requirements.txt -t .
 
   build:
     commands:
@@ -17,7 +13,7 @@ phases:
   post_build:
     commands:
       - echo "Deploying to AWS Lambda"
-      - aws lambda update-function-code --function-name MyLambdaFunction --zip-file fileb://lambda_function.zip
+      - aws lambda update-function-code --function-name lambda-cicd --zip-file fileb://lambda_function.zip
 
 artifacts:
   files:
